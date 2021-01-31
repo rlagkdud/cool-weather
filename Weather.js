@@ -44,25 +44,25 @@ const weatherOptions = {
     
     Haze:{
         iconName:"weather-hazy",
-        gadient:["#334d50","#cbcaa5"],
+        gradient:["#334d50","#cbcaa5"],
         title:"Haze",
         subtitle:"Hazy hazy hazy"
     },
     Fog:{
         iconName:"weather-fog",
-        gadient:["#757F9A","#D7DDE8"],
+        gradient:["#757F9A","#D7DDE8"],
         title:"Fog",
         subtitle:"Foggy foggy foggy"
     },
     Squall:{
         iconName:"weather-pouring",
-        gadient:["#00416A","#799F0C","#FFE000"],
+        gradient:["#00416A","#799F0C","#FFE000"],
         title:"Squall",
         subtitle:"Stay home"
     },
     Tornado:{
-        iconName:"weather-tordano",
-        gadient:["#2c3e50","#bdc3c7"],
+        iconName:"weather-tornado",
+        gradient:["#2c3e50","#bdc3c7"],
         title:"Tornado",
         subtitle:"Don't go outside"
     },
@@ -77,7 +77,7 @@ export default function Weather({ temp,condition }) {
                 <MaterialCommunityIcons name={weatherOptions[condition].iconName } size={96} color="white" />
                 <Text style={styles.temp}>{temp}°</Text>
             </View>
-            <View style={{...styles.halfContainer, ...styles.textContent}}>
+            <View style={styles.textContent}>
                 <Text style={styles.title}>{weatherOptions[condition].title}</Text>
                 <Text style={styles.subtitle}>{weatherOptions[condition].subtitle}</Text>
             </View>
@@ -103,9 +103,7 @@ Weather.propTypes = {
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
-        justifyContent:"center",
-        alignItems:"center"
+        flex:1
     },
     temp:{
         fontSize:30,
@@ -120,14 +118,20 @@ const styles = StyleSheet.create({
         color:"white",
         fontWeight:"300",
         fontSize:44,
-        marginBottom:10
+        marginBottom:10,
+        textAlign:"left"
     },
     subtitle:{
         color:"white",
         fontWeight:"600",
         fontSize:24,
+        textAlign:"left"
     },
     textContent:{
-        alignItems:"flex-start"
+        alignItems:"flex-start",
+        paddingHorizontal:40,
+        justifyContent:"center",
+        flex:1
+
     }
 })
